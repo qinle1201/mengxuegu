@@ -3,9 +3,9 @@ import axios from 'axios'
 
 // 请求公共接口地址
 const request = axios.create({
-    // baseURL: process.env.VUE_APP_BASE_API,
+    baseURL: process.env.VUE_APP_BASE_API,
     // 请求时间
-    timeout: 3000
+    timeout: 1000
 })
 
 // 配置请求拦截器
