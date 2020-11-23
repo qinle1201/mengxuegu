@@ -1,5 +1,7 @@
 <template>
-  <div>会员管理</div>
+  <div>
+    会员管理--测试
+  </div>
 </template>
 <script>
 export default {
