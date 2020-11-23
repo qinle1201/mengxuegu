@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/login'
 import Home from '../views/home'
-import Wellcome from '../views/wellcome'
+import Welcome from '../views/welcome'
 import Vip from '../views/vip'
 import Supplier from '../views/supplier'
 import Goods from '../views/goods'
@@ -26,13 +26,14 @@ const routes = [
   {
     path: '/home',
     component: Home,
+    redirect:'/welcome',
     meta: {
       title: '主页'
     },
     children: [
       {
-        path: '/wellcome',
-        component: Wellcome,
+        path: '/welcome',
+        component: Welcome,
         meta: {
           title: '首页'
         },

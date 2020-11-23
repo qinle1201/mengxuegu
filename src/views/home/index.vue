@@ -14,9 +14,9 @@
           active-text-color="#ffd04b"
         >
           <el-submenu index="2">
-            <template slot="title">我的工作台</template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item @click.native="out()">退出</el-menu-item>
+            <template slot="title">admin</template>
+            <el-menu-item index="2-1">修改密码</el-menu-item>
+            <el-menu-item @click.native="out()">退出登陆</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-header>
@@ -32,7 +32,7 @@
             text-color="#fff"
             active-text-color="#ffd04b"
           >
-            <el-menu-item index="/wellcome">
+            <el-menu-item index="/welcome">
               <i class="el-icon-s-home"></i>
               <span slot="title">首页</span>
             </el-menu-item>
@@ -85,7 +85,9 @@ export default {
         .catch(() => {
           this.$message("您已取消用户退出");
         });
-    }
+    },
+    handleOpen(){},
+    handleClose(){}
   }
 };
 </script>
