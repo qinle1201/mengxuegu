@@ -52,7 +52,7 @@
     <!-- 数据列表 -->
     <div class="staff_table">
       <el-table :data="showList" height="400px" border>
-        <el-table-column prop="id" label="序号"> </el-table-column>
+        <el-table-column type="index" label="序号" width="80px"> </el-table-column>
         <el-table-column prop="username" label="账号"> </el-table-column>
         <el-table-column prop="name" label="姓名"> </el-table-column>
         <el-table-column prop="age" label="年龄"> </el-table-column>
@@ -112,7 +112,7 @@
       </el-dialog>
     </div>
     <!-- 分页器 -->
-    <div class="staff_pagination">
+    <div class="staff_pagination" style="margin-top:10px">
       <el-pagination
         @current-change="handleCurrentChange"
         :current-page="1"
