@@ -1,6 +1,6 @@
 <template>
   <div>
-    会员管理--测试
+    会员管理--开发测试
   </div>
 </template>
 <script>
