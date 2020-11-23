@@ -1,10 +1,17 @@
 <template>
-  <div>会员管理--开发测试</div>
+  <div>
+    <!-- 引入面包屑导航 -->
+    <my-crumbs></my-crumbs>
+  </div>
 </template>
 <script>
+import MyCrumbs from '../../components/crumbs'
 export default {
   data() {
     return {};
+  },
+  components:{
+    'my-crumbs':MyCrumbs
   },
   created() {},
   computed: {},
@@ -12,4 +19,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
 </style>
