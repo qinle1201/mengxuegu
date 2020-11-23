@@ -22,5 +22,14 @@ export function delSupplier(id) {
     
             }
         })
-    }
+}
+
+// 添加供应商
+export function addSupplier(from) {
+        return request({
+            url: `supplier`,
+            method: "POST",
+            data : from,
+        })
+}
 
