@@ -3,7 +3,7 @@
     <el-container>
       <el-header>
         <div class="logo">
-          <img src="../../assets/logo.png" alt="" />
+          <img src="../../assets/logo.png" alt />
           <h1>梦学谷管理系统</h1>
         </div>
         <el-menu
@@ -16,7 +16,7 @@
           <el-submenu index="2">
             <template slot="title">我的工作台</template>
             <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
+            <el-menu-item @click.native="out()">退出</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-header>
@@ -55,19 +55,38 @@
           </el-menu>
         </el-aside>
         <el-main>
-          <router-view></router-view></el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 <script>
+import { outLogin } from '../../api/login';
 export default {
   data() {
     return {};
   },
   created() {},
   computed: {},
-  methods: {},
+  methods: {
+    out() {
+      this.$confirm("您确定要退出该用户吗?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(res => {
+          outLogin().then(res => {
+            this.$message.success("退出成功");
+            this.$router.push("/login");
+          });
+        })
+        .catch(() => {
+          this.$message("您已取消用户退出");
+        });
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
