@@ -2,10 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/login'
 import Home from '../views/home'
+import Wellcome from '../views/wellcome'
 import Vip from '../views/vip'
 import Supplier from '../views/supplier'
 import Goods from '../views/goods'
 import Staff from '../views/staff'
+
 
 Vue.use(VueRouter)
 
@@ -26,36 +28,45 @@ const routes = [
     component: Home,
     meta: {
       title: '主页'
-    }
-  },
-  {
-    path: '/vip',
-    component: Vip,
-    meta: {
-      title: '会员管理'
-    }
-  },
-  {
-    path: '/supplier',
-    component: Supplier,
-    meta: {
-      title: '供应商管理'
-    }
-  },
-  {
-    path: '/goods',
-    component: Goods,
-    meta: {
-      title: '商品管理'
-    }
+    },
+    children: [
+      {
+        path: '/wellcome',
+        component: Wellcome,
+        meta: {
+          title: '首页'
+        },
+      },
+      {
+        path: '/vip',
+        component: Vip,
+        meta: {
+          title: '会员管理'
+        }
+      },
+      {
+        path: '/supplier',
+        component: Supplier,
+        meta: {
+          title: '供应商管理'
+        }
+      },
+      {
+        path: '/goods',
+        component: Goods,
+        meta: {
+          title: '商品管理'
+        }
 
-  },
-  {
-    path: '/staff',
-    component: Staff,
-    meta: {
-      title: '员工管理管理'
-    }
+      },
+      {
+        path: '/staff',
+        component: Staff,
+        meta: {
+          title: '员工管理管理'
+        }
+      },
+    ]
   },
   // {
   //   path: '/about',
