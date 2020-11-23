@@ -1,5 +1,5 @@
 <template>
-  <div>商品管理</div>
+  <div>hello !!!</div>
 </template>
 <script>
 export default {

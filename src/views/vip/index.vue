@@ -1,5 +1,6 @@
 <template>
   <div>
+<<<<<<< HEAD
     <h3>会员管理</h3>
     <!-- 表单 -->
     <el-form :inline="true" :model="formInline" class="demo-form-inline">
@@ -45,6 +46,9 @@
         </template>
       </el-table-column>
     </el-table>
+=======
+    会员管理--开发测试
+>>>>>>> 6570ce8b5eb9ed1de9cb17f26b077ca9ff644d89
   </div>
 </template>
 <script>
