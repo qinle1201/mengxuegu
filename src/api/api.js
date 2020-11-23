@@ -1,4 +1,4 @@
-import request from './request'
+import request from '../utils/request'
 
 // get 
 export function gets(url,data){
