@@ -1,6 +1,7 @@
 <template>
   <div>
-    李盛怡-员工管理
+    <!-- 顶部面包屑 -->
+    <Crumbs />
     <!-- 头部输入框 -->
     <div class="staff_search">
       <el-input v-model="username" placeholder="账号"></el-input>
@@ -11,30 +12,30 @@
     </div>
     <!-- 新增弹出框 -->
     <div class="staff_add">
-      <el-dialog title="员工编辑" :visible.sync="dialogFormVisible2">
-        <el-form :model="form">
+      <el-dialog title="员工新增" :visible.sync="dialogFormVisible2">
+        <el-form :model="addform">
           <el-form-item label="账号" :label-width="formLabelWidth">
-            <el-input v-model="form.username"></el-input>
+            <el-input v-model="addform.username"></el-input>
           </el-form-item>
           <el-form-item label="姓名" :label-width="formLabelWidth">
-            <el-input v-model="form.name"></el-input>
+            <el-input v-model="addform.name"></el-input>
           </el-form-item>
           <el-form-item label="年龄" :label-width="formLabelWidth">
-            <el-input v-model="form.age"></el-input>
+            <el-input v-model="addform.age"></el-input>
           </el-form-item>
           <el-form-item label="电话" :label-width="formLabelWidth">
-            <el-input v-model="form.mobile"></el-input>
+            <el-input v-model="addform.mobile"></el-input>
           </el-form-item>
           <el-form-item label="薪酬" :label-width="formLabelWidth">
-            <el-input v-model="form.salary"></el-input>
+            <el-input v-model="addform.salary"></el-input>
           </el-form-item>
           <el-form-item label="入职时间" :label-width="formLabelWidth">
-            <el-input v-model="form.entryDate" type="date"></el-input>
+            <el-input v-model="addform.entryDate" type="date"></el-input>
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="dialogFormVisible = false">取 消</el-button>
-          <el-button type="primary" @click="sureSelect">确 定</el-button>
+          <el-button type="primary" @click="sureAdd">确 定</el-button>
         </div>
       </el-dialog>
     </div>
@@ -131,8 +132,12 @@
   </div>
 </template>
 <script>
+import Crumbs from '../../components/crumbs'
 import axios from 'axios'
 export default {
+  components: {
+    Crumbs
+  },
   data() {
     return {
       showList: [],
@@ -147,6 +152,14 @@ export default {
       formLabelWidth: '150px',
       form: {  // 记录点击编辑的列表
         id: 0,
+        username: '',
+        name: '',
+        age: '',
+        mobile: '',
+        salary: '',
+        entryDate: ''
+      },
+      addform: { // 新增员工模板
         username: '',
         name: '',
         age: '',
@@ -203,6 +216,19 @@ export default {
     // 点击新增
     onAdd() {
       this.dialogFormVisible2 = true;
+    },
+    // 点击新增确定
+    sureAdd() {
+      this.dialogFormVisible2 = false;
+      this.showList.unshift({
+        id: 0,
+        username: this.addform.username,
+        name: this.addform.name,
+        age: this.addform.age,
+        mobile: this.addform.mobile,
+        salary: this.addform.salary,
+        entryDate: this.addform.entryDate
+      })
     },
     // 点击重置
     onReset() {
